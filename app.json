@@ -8,7 +8,13 @@
     "scheme": "ejerciciohooks1",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Esta app usa tu ubicación para mostrar tu posición actual.",
+        "NSCameraUsageDescription": "Esta app usa la cámara para tomar fotos.",
+        "NSFaceIDUsageDescription": "Esta app usa Face ID para autenticación biométrica.",
+        "NSMotionUsageDescription": "Esta app usa el acelerómetro para detectar el movimiento de sacudida."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +23,15 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "ACTIVITY_RECOGNITION"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +46,31 @@
           "image": "./assets/images/splash-icon.png",
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-sqlite",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Permitir a $(PRODUCT_NAME) usar tu ubicación."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Permitir a $(PRODUCT_NAME) acceder a la cámara."
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Permitir a $(PRODUCT_NAME) usar Face ID."
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "faceIDPermission": "Permitir a $(PRODUCT_NAME) acceder a tus datos biométricos."
         }
       ]
     ],
